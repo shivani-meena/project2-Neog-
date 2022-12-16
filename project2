@@ -1,0 +1,63 @@
+console.log("           WELCOME TO  QUIZE GAME")
+console.log("")
+console.log("")
+var readlineSync = require('readline-sync');
+var score = 0;
+
+var userName = readlineSync.question("what's your name ? :");
+console.log("                          welcome "+ userName + " \n\nin this game we ask four questions to you \n\nQuiz rule:-every correct answer will give you 1 mark\n");
+ 
+
+// play function
+
+function play(question,answer) {
+  var userAnswer = readlineSync.question(question);
+
+  if (userAnswer === answer) {
+    console.log("right");
+    score = score + 1
+  } else {
+    console.log("wrong!");
+  }
+
+  console.log("current score : "+ score);
+  console.log("---------------");
+}
+
+// array of objects
+var questions = [{
+  question:"Qn-1.which is the smallest planet in our solar sysytem?\nA.Mars  B.Jupiter  C.Mercury  D.Venus \n\nchoose your answer:",
+  answer: "C"
+},{
+  question: "Qn-2.who was the first women president of india?\nA.Pratibha patil  B.Indira gandhi C.Kiran bedi D.sarozini naidu\n\nchoose your answer:",
+  answer:"A"
+},{
+  question: "Qn-3.which is the longest river of  india?\nA.Brahmputra  B.Godawari  C.Ganga D.Mahanadi \n\nchoose your answer:",
+  answer:"C"
+},{
+  question: "Qn-4.which is the smallest state in india?\nA.Goa B.Gujrat C.Assam  D.bihar \n\nchoose your answer:",
+  answer:"A"
+},{
+  question: "Qn-5.Which state has the largest area?\nA.Maharashtra B.UtterPradesh  C.Rajasthan  D.MadhyaPradesh \n\nchoose your answer:",
+  answer:"C"
+}];
+
+//loop
+
+for (var i=0; i<questions.length; i++) {
+  var currentQuestion = questions[i];
+  play(currentQuestion.question,currentQuestion.answer)
+}
+
+function showScores() {
+  console.log("Hey! YOUR FINAL SCORE IS: ", score);
+}
+
+showScores();
+
+console.log("THANKS FOR PLAYING")
+
+
+
+
+
